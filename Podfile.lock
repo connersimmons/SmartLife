@@ -1,0 +1,10 @@
+PODS:
+  - MAThemeKit (1.0)
+
+DEPENDENCIES:
+  - MAThemeKit
+
+SPEC CHECKSUMS:
+  MAThemeKit: 559acc98ceadc051cccb1b6bb0c4ca28475eb021
+
+COCOAPODS: 0.39.0
