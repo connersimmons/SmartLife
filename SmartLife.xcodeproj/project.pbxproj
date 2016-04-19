@@ -14,10 +14,13 @@
 		C52067231CBD7AB400D9239F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52067211CBD7AB400D9239F /* LaunchScreen.storyboard */; };
 		C520672E1CBD7AB500D9239F /* SmartLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520672D1CBD7AB500D9239F /* SmartLifeTests.swift */; };
 		C52067391CBD7AB500D9239F /* SmartLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52067381CBD7AB500D9239F /* SmartLifeUITests.swift */; };
-		C520674D1CBD7D8800D9239F /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520674C1CBD7D8800D9239F /* HomeTableViewController.swift */; };
 		C52067501CBD7D9F00D9239F /* GMColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520674E1CBD7D9F00D9239F /* GMColor.swift */; };
 		C52067511CBD7D9F00D9239F /* GMPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520674F1CBD7D9F00D9239F /* GMPalette.swift */; };
-		C52067541CBD856700D9239F /* SmartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52067531CBD856700D9239F /* SmartTableViewCell.swift */; };
+		C52294091CC6A1DF0096DBA9 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52294081CC6A1DF0096DBA9 /* HomeTableViewController.swift */; };
+		C52294111CC6AFDB0096DBA9 /* LightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522940F1CC6AFDB0096DBA9 /* LightsTableViewCell.swift */; };
+		C52294121CC6AFDB0096DBA9 /* LightsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52294101CC6AFDB0096DBA9 /* LightsTableViewCell.xib */; };
+		C52294151CC6C4040096DBA9 /* GarageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52294131CC6C4040096DBA9 /* GarageTableViewCell.swift */; };
+		C52294161CC6C4040096DBA9 /* GarageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52294141CC6C4040096DBA9 /* GarageTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +55,13 @@
 		C52067341CBD7AB500D9239F /* SmartLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52067381CBD7AB500D9239F /* SmartLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartLifeUITests.swift; sourceTree = "<group>"; };
 		C520673A1CBD7AB500D9239F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C520674C1CBD7D8800D9239F /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTableViewController.swift; path = ViewControllers/HomeTableViewController.swift; sourceTree = "<group>"; };
 		C520674E1CBD7D9F00D9239F /* GMColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMColor.swift; path = Helpers/GMColor.swift; sourceTree = "<group>"; };
 		C520674F1CBD7D9F00D9239F /* GMPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMPalette.swift; path = Helpers/GMPalette.swift; sourceTree = "<group>"; };
-		C52067531CBD856700D9239F /* SmartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SmartTableViewCell.swift; path = TableViewCells/SmartTableViewCell.swift; sourceTree = "<group>"; };
+		C52294081CC6A1DF0096DBA9 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTableViewController.swift; path = ViewControllers/HomeTableViewController.swift; sourceTree = "<group>"; };
+		C522940F1CC6AFDB0096DBA9 /* LightsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LightsTableViewCell.swift; path = Models/LightsTableViewCell.swift; sourceTree = "<group>"; };
+		C52294101CC6AFDB0096DBA9 /* LightsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LightsTableViewCell.xib; path = Models/LightsTableViewCell.xib; sourceTree = "<group>"; };
+		C52294131CC6C4040096DBA9 /* GarageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GarageTableViewCell.swift; path = Models/GarageTableViewCell.swift; sourceTree = "<group>"; };
+		C52294141CC6C4040096DBA9 /* GarageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GarageTableViewCell.xib; path = Models/GarageTableViewCell.xib; sourceTree = "<group>"; };
 		C55ACD0C3EFB8157D976786B /* Pods-SmartLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartLife/Pods-SmartLife.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,13 +133,14 @@
 		C52067171CBD7AB400D9239F /* SmartLife */ = {
 			isa = PBXGroup;
 			children = (
+				C522940A1CC6A27D0096DBA9 /* Models */,
+				C52294071CC6A1AA0096DBA9 /* Nibs */,
 				C52067181CBD7AB400D9239F /* AppDelegate.swift */,
 				C520671F1CBD7AB400D9239F /* Assets.xcassets */,
 				C520674A1CBD7CC800D9239F /* Helpers */,
 				C52067241CBD7AB400D9239F /* Info.plist */,
 				C52067211CBD7AB400D9239F /* LaunchScreen.storyboard */,
 				C520671C1CBD7AB400D9239F /* Main.storyboard */,
-				C52067521CBD854300D9239F /* TableViewCells */,
 				C520674B1CBD7D6400D9239F /* ViewControllers */,
 			);
 			path = SmartLife;
@@ -169,17 +176,27 @@
 		C520674B1CBD7D6400D9239F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C520674C1CBD7D8800D9239F /* HomeTableViewController.swift */,
+				C52294081CC6A1DF0096DBA9 /* HomeTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C52067521CBD854300D9239F /* TableViewCells */ = {
+		C52294071CC6A1AA0096DBA9 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				C52067531CBD856700D9239F /* SmartTableViewCell.swift */,
+				C52294141CC6C4040096DBA9 /* GarageTableViewCell.xib */,
+				C52294101CC6AFDB0096DBA9 /* LightsTableViewCell.xib */,
 			);
-			name = TableViewCells;
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		C522940A1CC6A27D0096DBA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C52294131CC6C4040096DBA9 /* GarageTableViewCell.swift */,
+				C522940F1CC6AFDB0096DBA9 /* LightsTableViewCell.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +306,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C52294121CC6AFDB0096DBA9 /* LightsTableViewCell.xib in Resources */,
 				C52067231CBD7AB400D9239F /* LaunchScreen.storyboard in Resources */,
 				C52067201CBD7AB400D9239F /* Assets.xcassets in Resources */,
+				C52294161CC6C4040096DBA9 /* GarageTableViewCell.xib in Resources */,
 				C520671E1CBD7AB400D9239F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,11 +383,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C520674D1CBD7D8800D9239F /* HomeTableViewController.swift in Sources */,
-				C52067541CBD856700D9239F /* SmartTableViewCell.swift in Sources */,
 				C52067511CBD7D9F00D9239F /* GMPalette.swift in Sources */,
 				C52067191CBD7AB400D9239F /* AppDelegate.swift in Sources */,
 				C52067501CBD7D9F00D9239F /* GMColor.swift in Sources */,
+				C52294111CC6AFDB0096DBA9 /* LightsTableViewCell.swift in Sources */,
+				C52294151CC6C4040096DBA9 /* GarageTableViewCell.swift in Sources */,
+				C52294091CC6A1DF0096DBA9 /* HomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

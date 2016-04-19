@@ -1,72 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1N9-Nj-tGd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xx7-Ai-tbF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--SmartLife-->
-        <scene sceneID="TiE-Uw-Fwl">
+        <scene sceneID="Efl-Ga-pn1">
             <objects>
-                <tableViewController id="iPF-Dj-ZQ3" customClass="HomeTableViewController" customModule="SmartLife" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="F3B-Fc-ASf">
+                <tableViewController id="Mxt-9m-7Kr" customClass="HomeTableViewController" customModule="SmartLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iDm-Fz-xyi">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SmartCell" rowHeight="200" id="i6y-SV-gul" customClass="SmartTableViewCell" customModule="SmartLife" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="v4b-i2-iLi">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i6y-SV-gul" id="q0u-RB-n2b">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v4b-i2-iLi" id="ZMr-5S-5MU">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EoR-e7-bY2">
-                                            <rect key="frame" x="8" y="0.0" width="584" height="192"/>
-                                            <color key="backgroundColor" red="0.12941176469999999" green="0.58823529409999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="EoR-e7-bY2" firstAttribute="top" secondItem="q0u-RB-n2b" secondAttribute="top" id="VMd-CX-1Jk"/>
-                                        <constraint firstItem="EoR-e7-bY2" firstAttribute="leading" secondItem="q0u-RB-n2b" secondAttribute="leadingMargin" id="VSt-Yi-F3E"/>
-                                        <constraint firstItem="EoR-e7-bY2" firstAttribute="trailing" secondItem="q0u-RB-n2b" secondAttribute="trailingMargin" id="cN2-d5-kO3"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="EoR-e7-bY2" secondAttribute="bottom" constant="-0.5" id="cYL-vS-p1z"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="backgroundImageView" destination="EoR-e7-bY2" id="B1Z-Pi-7bv"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="iPF-Dj-ZQ3" id="ITf-Mx-5bS"/>
-                            <outlet property="delegate" destination="iPF-Dj-ZQ3" id="Ggf-gM-rSf"/>
+                            <outlet property="dataSource" destination="Mxt-9m-7Kr" id="kJ4-Nc-wr0"/>
+                            <outlet property="delegate" destination="Mxt-9m-7Kr" id="3vt-kY-WlX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SmartLife" id="W8E-Mn-XpE"/>
+                    <navigationItem key="navigationItem" title="SmartLife" id="3n5-xk-V44"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pnS-MV-PgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MV0-pO-yDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1446" y="365"/>
+            <point key="canvasLocation" x="2350" y="1140"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Wcm-s4-rTc">
+        <scene sceneID="J8T-Pa-cJ7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1N9-Nj-tGd" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xx7-Ai-tbF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="lX4-2u-lNs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dks-hm-pwA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="iPF-Dj-ZQ3" kind="relationship" relationship="rootViewController" id="VUD-ZJ-o2a"/>
+                        <segue destination="Mxt-9m-7Kr" kind="relationship" relationship="rootViewController" id="juR-Xa-VIm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UdR-go-JWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCL-MO-o01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634" y="365"/>
+            <point key="canvasLocation" x="1538" y="1140"/>
         </scene>
     </scenes>
 </document>
