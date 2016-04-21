@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '702CD84B7CB032B0DCAB784E'
+               BlueprintIdentifier = '5D3B98E2ED889D450F5971E8'
                BlueprintName = 'Pods-SmartLife'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_SmartLife.framework'>

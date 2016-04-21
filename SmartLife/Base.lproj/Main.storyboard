@@ -29,6 +29,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="SmartLife" id="3n5-xk-V44"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="dCi-uZ-dUe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MV0-pO-yDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

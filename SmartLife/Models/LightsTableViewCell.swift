@@ -16,18 +16,23 @@ class LightsTableViewCell: UITableViewCell {
     @IBOutlet weak var kitchenSwitch: UISwitch!
     @IBOutlet weak var bathroomSwitch: UISwitch!
     
+    private var commHelper : CommunicationHelper!
+    
     let arduinoURL = "http://192.168.1.101/"
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
-        self.layer.cornerRadius = 8
+        //self.layer.cornerRadius = 8
         //webView.backgroundColor = UIColor.clearColor()
         //webView.opaque = false
         //webView.userInteractionEnabled = false
@@ -71,6 +76,4 @@ class LightsTableViewCell: UITableViewCell {
         let urlRequest = NSURLRequest(URL: commandURL)
         webView.loadRequest(urlRequest)
     }
-    
-    
 }

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '61C9765E680B92A96DDF2783'
+               BlueprintIdentifier = '99AD0AAA12B19DC2C7F7AB3B'
                BlueprintName = 'MAThemeKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MAThemeKit.framework'>

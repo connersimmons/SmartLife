@@ -21,6 +21,10 @@
 		C52294121CC6AFDB0096DBA9 /* LightsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52294101CC6AFDB0096DBA9 /* LightsTableViewCell.xib */; };
 		C52294151CC6C4040096DBA9 /* GarageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52294131CC6C4040096DBA9 /* GarageTableViewCell.swift */; };
 		C52294161CC6C4040096DBA9 /* GarageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52294141CC6C4040096DBA9 /* GarageTableViewCell.xib */; };
+		C52294191CC6F4B90096DBA9 /* TempHumidityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52294171CC6F4B90096DBA9 /* TempHumidityTableViewCell.swift */; };
+		C522941A1CC6F4B90096DBA9 /* TempHumidityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52294181CC6F4B90096DBA9 /* TempHumidityTableViewCell.xib */; };
+		C522941D1CC841D60096DBA9 /* CommunicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522941C1CC841D60096DBA9 /* CommunicationHelper.swift */; };
+		C52294201CC943550096DBA9 /* smartLife.ino in Resources */ = {isa = PBXBuildFile; fileRef = C522941F1CC943550096DBA9 /* smartLife.ino */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		C52294101CC6AFDB0096DBA9 /* LightsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LightsTableViewCell.xib; path = Models/LightsTableViewCell.xib; sourceTree = "<group>"; };
 		C52294131CC6C4040096DBA9 /* GarageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GarageTableViewCell.swift; path = Models/GarageTableViewCell.swift; sourceTree = "<group>"; };
 		C52294141CC6C4040096DBA9 /* GarageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GarageTableViewCell.xib; path = Models/GarageTableViewCell.xib; sourceTree = "<group>"; };
+		C52294171CC6F4B90096DBA9 /* TempHumidityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TempHumidityTableViewCell.swift; path = Models/TempHumidityTableViewCell.swift; sourceTree = "<group>"; };
+		C52294181CC6F4B90096DBA9 /* TempHumidityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TempHumidityTableViewCell.xib; path = Models/TempHumidityTableViewCell.xib; sourceTree = "<group>"; };
+		C522941C1CC841D60096DBA9 /* CommunicationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunicationHelper.swift; path = Helpers/CommunicationHelper.swift; sourceTree = "<group>"; };
+		C522941F1CC943550096DBA9 /* smartLife.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = smartLife.ino; path = Arduino/smartLife.ino; sourceTree = "<group>"; };
 		C55ACD0C3EFB8157D976786B /* Pods-SmartLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartLife/Pods-SmartLife.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,14 +141,16 @@
 		C52067171CBD7AB400D9239F /* SmartLife */ = {
 			isa = PBXGroup;
 			children = (
-				C522940A1CC6A27D0096DBA9 /* Models */,
-				C52294071CC6A1AA0096DBA9 /* Nibs */,
+				C522941E1CC9432C0096DBA9 /* Arduino */,
 				C52067181CBD7AB400D9239F /* AppDelegate.swift */,
 				C520671F1CBD7AB400D9239F /* Assets.xcassets */,
+				C522941B1CC841C20096DBA9 /* Helpers */,
 				C520674A1CBD7CC800D9239F /* Helpers */,
 				C52067241CBD7AB400D9239F /* Info.plist */,
 				C52067211CBD7AB400D9239F /* LaunchScreen.storyboard */,
 				C520671C1CBD7AB400D9239F /* Main.storyboard */,
+				C522940A1CC6A27D0096DBA9 /* Models */,
+				C52294071CC6A1AA0096DBA9 /* Nibs */,
 				C520674B1CBD7D6400D9239F /* ViewControllers */,
 			);
 			path = SmartLife;
@@ -186,6 +196,7 @@
 			children = (
 				C52294141CC6C4040096DBA9 /* GarageTableViewCell.xib */,
 				C52294101CC6AFDB0096DBA9 /* LightsTableViewCell.xib */,
+				C52294181CC6F4B90096DBA9 /* TempHumidityTableViewCell.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -195,8 +206,25 @@
 			children = (
 				C52294131CC6C4040096DBA9 /* GarageTableViewCell.swift */,
 				C522940F1CC6AFDB0096DBA9 /* LightsTableViewCell.swift */,
+				C52294171CC6F4B90096DBA9 /* TempHumidityTableViewCell.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		C522941B1CC841C20096DBA9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C522941C1CC841D60096DBA9 /* CommunicationHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		C522941E1CC9432C0096DBA9 /* Arduino */ = {
+			isa = PBXGroup;
+			children = (
+				C522941F1CC943550096DBA9 /* smartLife.ino */,
+			);
+			name = Arduino;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +334,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C52294201CC943550096DBA9 /* smartLife.ino in Resources */,
 				C52294121CC6AFDB0096DBA9 /* LightsTableViewCell.xib in Resources */,
 				C52067231CBD7AB400D9239F /* LaunchScreen.storyboard in Resources */,
+				C522941A1CC6F4B90096DBA9 /* TempHumidityTableViewCell.xib in Resources */,
 				C52067201CBD7AB400D9239F /* Assets.xcassets in Resources */,
 				C52294161CC6C4040096DBA9 /* GarageTableViewCell.xib in Resources */,
 				C520671E1CBD7AB400D9239F /* Main.storyboard in Resources */,
@@ -385,6 +415,8 @@
 			files = (
 				C52067511CBD7D9F00D9239F /* GMPalette.swift in Sources */,
 				C52067191CBD7AB400D9239F /* AppDelegate.swift in Sources */,
+				C522941D1CC841D60096DBA9 /* CommunicationHelper.swift in Sources */,
+				C52294191CC6F4B90096DBA9 /* TempHumidityTableViewCell.swift in Sources */,
 				C52067501CBD7D9F00D9239F /* GMColor.swift in Sources */,
 				C52294111CC6AFDB0096DBA9 /* LightsTableViewCell.swift in Sources */,
 				C52294151CC6C4040096DBA9 /* GarageTableViewCell.swift in Sources */,
@@ -534,6 +566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SmartLife/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.connersimmons.SmartLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -546,6 +579,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SmartLife/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.connersimmons.SmartLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -84,8 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-SmartLife/Alamofire.framework"
+  install_framework "Pods-SmartLife/Alamofire_Synchronous.framework"
   install_framework "Pods-SmartLife/MAThemeKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-SmartLife/Alamofire.framework"
+  install_framework "Pods-SmartLife/Alamofire_Synchronous.framework"
   install_framework "Pods-SmartLife/MAThemeKit.framework"
 fi

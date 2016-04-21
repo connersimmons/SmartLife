@@ -10,22 +10,37 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     
+    var timer : NSTimer!
+    private var commHelper : CommunicationHelper!
+    
     let cellReuseID = "Cell"
     let lightsCellNibName = "LightsTableViewCell"
     let garageCellNibName = "GarageTableViewCell"
+    let tempHumCellNibName = "TempHumidityTableViewCell"
     
     let arduinoURL = "http://192.168.1.101/"
     
     var kitchenStatus = "?"
     var bathroomStatus = "?"
+    var fahrenheit = "?"
+    var celsius = "?"
+    var humidity = "?"
+    var garageStatus = "?"
+    var garageStatus2 = "?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        commHelper = CommunicationHelper.sharedInstance
         
-        performRestCall()
-        setup()
+        let jsonResults = commHelper.performRestCall("\(arduinoURL)$0")
+        print(jsonResults)
+        handleResultsOfWebCall(jsonResults)
+        
+        self.timer = NSTimer(timeInterval: 2.0, target: self, selector: #selector(HomeTableViewController.refresh(_:)), userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(self.timer, forMode: NSDefaultRunLoopMode)
+        
+        self.refreshControl?.addTarget(self, action: #selector(HomeTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,20 +48,27 @@ class HomeTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Refresh Control
+    
+    func refresh(sender:AnyObject) {
+        let jsonResults = commHelper.performRestCall("\(arduinoURL)$0")
+        handleResultsOfWebCall(jsonResults)
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        
         switch indexPath.section {
         case 0:
             tableView.registerNib(UINib(nibName: lightsCellNibName, bundle: nil), forCellReuseIdentifier: cellReuseID)
@@ -69,6 +91,30 @@ class HomeTableViewController: UITableViewController {
         case 1:
             tableView.registerNib(UINib(nibName: garageCellNibName, bundle: nil), forCellReuseIdentifier: cellReuseID)
             let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as! GarageTableViewCell
+            
+            cell.garageDoorStatus.text = garageStatus
+            if garageStatus == "Open" {
+                cell.garageDoorSwitch.setOn(true, animated: true)
+            } else if garageStatus == "Closed" {
+                cell.garageDoorSwitch.setOn(false, animated: true)
+            }
+            
+            return cell
+        case 2:
+            tableView.registerNib(UINib(nibName: tempHumCellNibName, bundle: nil), forCellReuseIdentifier: cellReuseID)
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as! TempHumidityTableViewCell
+            
+            if cell.unitSwitch.on {
+                cell.currentTemp.text = "\(celsius) °C"
+            } else {
+                cell.currentTemp.text = "\(fahrenheit) °F"
+            }
+            //cell.tempStr = fahrenheit
+            //print(temperature)
+            //cell.currentTemp.text = "\(temperatureRound(temperature)) °F"
+            
+            cell.currentHumidity.text = "\(humidity) %"
+            
             return cell
         default:
             break
@@ -96,36 +142,11 @@ class HomeTableViewController: UITableViewController {
     }
     
     
+    // MARK: - Utility Methods
     
-    
-    private func performRestCall() {        
-        let urlRequest = NSMutableURLRequest(URL: NSURL(string: arduinoURL)!)
-        urlRequest.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
-        urlRequest.HTTPMethod = "GET"
-        urlRequest.setValue("application/json; charset=utf=8", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        let session = NSURLSession.sharedSession()
+    func handleResultsOfWebCall(jsonResults : NSDictionary) {
         
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data: NSData?, response: NSURLResponse?, error: NSError?) in
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                if let anError = error {
-                    //error getting data
-                    self.showAlert(anError.localizedDescription)
-                } else {
-                    //process JSON
-                    self.handleResultsOfWebCall(data!)
-                }
-            })
-            return
-        }
-        task.resume() //you need to call this
-    }
-    
-    func handleResultsOfWebCall(theData : NSData) {
-        
-        let jsonResults = (try! NSJSONSerialization.JSONObjectWithData(theData, options: [])) as! NSDictionary
+        //let jsonResults = (try! NSJSONSerialization.JSONObjectWithData(theData, options: [])) as! NSDictionary
         
         let theSensors = jsonResults["arduino"] as! NSArray
         for i in 0..<theSensors.count {
@@ -133,27 +154,42 @@ class HomeTableViewController: UITableViewController {
             let key = sensor["key"] as! String
             let value = sensor["value"] as! String
             
-            if (key == "kitchenLED") {
+            if key == "kitchenLED" {
                 if value == "1" {
                     kitchenStatus = "On"
                 } else {
                     kitchenStatus = "Off"
                 }
-            } else if (key == "bathroomLED"){
+            } else if key == "bathroomLED" {
                 if value == "1" {
                     bathroomStatus = "On"
                 } else {
                     bathroomStatus = "Off"
                 }
+            } else if key == "temperatureF" {
+                fahrenheit = valueRound(value)
+            } else if key == "temperatureC" {
+                celsius = valueRound(value)
+            } else if key == "humidity" {
+                humidity = valueRound(value)
+            } else if key == "garage" {
+                if value == "Open" {
+                    garageStatus = "Open"
+                } else if value == "Closed" {
+                    garageStatus = "Closed"
+                }
+            } else if key == "garage2" {
+                if value == "Open" {
+                    garageStatus2 = "Open"
+                } else if value == "Closed" {
+                    garageStatus2 = "Closed"
+                }
             }
+            
         }
-        //lastUpdate = NSDate()
-        //saveSettings()
-        //updateDisplayWithCurrentReadings()
         
         tableView.reloadData()
     }
-    
     
     func showAlert(alertMessage : String) {
         let alertController = UIAlertController(title: "Error", message: alertMessage, preferredStyle: .Alert)
@@ -162,56 +198,9 @@ class HomeTableViewController: UITableViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
         return
     }
-    
-    
-    private func setup() {
-        
+
+    private func valueRound(str : String) -> String {
+        let temp = Double(str)
+        return String(Int(round(temp!)))
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

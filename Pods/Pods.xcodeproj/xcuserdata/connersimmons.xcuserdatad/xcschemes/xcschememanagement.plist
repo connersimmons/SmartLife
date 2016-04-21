@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire-Synchronous.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MAThemeKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>41D809180E14D1437CAF24F1E7E68ACE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4FDAD9E429643688B30F2AF4A0B1D858</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C622D73DB40DAF1CB83B9B9CA0B3DB5E</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ECD6632743736E2BAA16E2B7E7872860</key>
 		<dict>
 			<key>primary</key>
 			<true/>
