@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,70 +11,109 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="174.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GARAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWa-rv-bjt">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="garagebkg" translatesAutoresizingMaskIntoConstraints="NO" id="Z0U-gB-UYk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GARAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWa-rv-bjt">
                         <rect key="frame" x="8" y="145" width="67" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLI-3V-tnp">
+                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qLI-3V-tnp">
                         <rect key="frame" x="8" y="8" width="25" height="25"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                     </webView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtA-Mo-bet">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtA-Mo-bet">
                         <rect key="frame" x="212" y="63" width="100" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTV-ud-yZK">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTV-ud-yZK">
                         <rect key="frame" x="212" y="92" width="100" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zng-ft-9tn">
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zng-ft-9tn">
                         <rect key="frame" x="238" y="135" width="51" height="31"/>
+                        <color key="onTintColor" red="0.85262101889999997" green="0.42218321559999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <action selector="garageDoorSwitch2Pressed:" destination="KGk-i7-Jjw" eventType="valueChanged" id="sVo-iS-4Tf"/>
                         </connections>
                     </switch>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Door 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JP4-A9-RIS">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JP4-A9-RIS">
                         <rect key="frame" x="212" y="10" width="100" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItM-3C-y1e">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItM-3C-y1e">
                         <rect key="frame" x="104" y="63" width="100" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STy-kZ-Cey">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STy-kZ-Cey">
                         <rect key="frame" x="104" y="92" width="100" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z8P-l3-sge">
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z8P-l3-sge">
                         <rect key="frame" x="130" y="135" width="51" height="31"/>
+                        <color key="onTintColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <action selector="garageDoorSwitchPressed:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Iyz-ac-IkC"/>
                         </connections>
                     </switch>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Door 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znB-VC-fkK">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znB-VC-fkK">
                         <rect key="frame" x="104" y="10" width="100" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="Z0U-gB-UYk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6Q0-on-gMI"/>
+                    <constraint firstItem="JP4-A9-RIS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="79P-LF-E5h"/>
+                    <constraint firstItem="STy-kZ-Cey" firstAttribute="baseline" secondItem="nTV-ud-yZK" secondAttribute="baseline" id="FUE-wd-Tdg"/>
+                    <constraint firstItem="nTV-ud-yZK" firstAttribute="centerX" secondItem="zng-ft-9tn" secondAttribute="centerX" id="HGU-e9-rMl"/>
+                    <constraint firstItem="JP4-A9-RIS" firstAttribute="trailing" secondItem="UtA-Mo-bet" secondAttribute="trailing" id="HoS-jP-MKh"/>
+                    <constraint firstItem="ItM-3C-y1e" firstAttribute="top" secondItem="znB-VC-fkK" secondAttribute="bottom" constant="32" id="IEv-Qc-9Mt"/>
+                    <constraint firstItem="JP4-A9-RIS" firstAttribute="leading" secondItem="UtA-Mo-bet" secondAttribute="leading" id="IaN-m3-OLv"/>
+                    <constraint firstItem="z8P-l3-sge" firstAttribute="top" secondItem="zng-ft-9tn" secondAttribute="top" id="LyZ-uB-24H"/>
+                    <constraint firstItem="ItM-3C-y1e" firstAttribute="baseline" secondItem="UtA-Mo-bet" secondAttribute="baseline" id="Mjo-zd-6BJ"/>
+                    <constraint firstItem="TWa-rv-bjt" firstAttribute="bottom" secondItem="z8P-l3-sge" secondAttribute="bottom" id="Nzc-oq-CcT"/>
+                    <constraint firstItem="z8P-l3-sge" firstAttribute="top" secondItem="STy-kZ-Cey" secondAttribute="bottom" constant="22" id="OFX-Cc-NCv"/>
+                    <constraint firstItem="Z0U-gB-UYk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="OUN-NY-zO5"/>
+                    <constraint firstItem="znB-VC-fkK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="P7B-oD-PLs"/>
+                    <constraint firstItem="UtA-Mo-bet" firstAttribute="leading" secondItem="ItM-3C-y1e" secondAttribute="trailing" constant="8" symbolic="YES" id="Poe-Gv-hAO"/>
+                    <constraint firstItem="STy-kZ-Cey" firstAttribute="top" secondItem="ItM-3C-y1e" secondAttribute="bottom" constant="8" symbolic="YES" id="Qht-ru-Tgm"/>
+                    <constraint firstItem="STy-kZ-Cey" firstAttribute="centerX" secondItem="z8P-l3-sge" secondAttribute="centerX" id="Shc-iD-Bih"/>
+                    <constraint firstItem="ItM-3C-y1e" firstAttribute="leading" secondItem="STy-kZ-Cey" secondAttribute="leading" id="TLX-r1-2B6"/>
+                    <constraint firstItem="znB-VC-fkK" firstAttribute="baseline" secondItem="JP4-A9-RIS" secondAttribute="baseline" id="Tgd-a5-DjJ"/>
+                    <constraint firstItem="zng-ft-9tn" firstAttribute="leading" secondItem="z8P-l3-sge" secondAttribute="trailing" constant="59" id="XsJ-Iw-OB4"/>
+                    <constraint firstItem="Z0U-gB-UYk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zhf-Ye-K8w"/>
+                    <constraint firstItem="znB-VC-fkK" firstAttribute="leading" secondItem="ItM-3C-y1e" secondAttribute="leading" id="b3A-p6-eLF"/>
+                    <constraint firstItem="qLI-3V-tnp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="crz-yY-6Na"/>
+                    <constraint firstItem="qLI-3V-tnp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="eqx-qY-hgl"/>
+                    <constraint firstItem="nTV-ud-yZK" firstAttribute="leading" secondItem="STy-kZ-Cey" secondAttribute="trailing" constant="8" symbolic="YES" id="fnE-Bp-xUb"/>
+                    <constraint firstItem="JP4-A9-RIS" firstAttribute="leading" secondItem="znB-VC-fkK" secondAttribute="trailing" constant="8" symbolic="YES" id="gmV-Ms-PIQ"/>
+                    <constraint firstItem="qLI-3V-tnp" firstAttribute="centerY" secondItem="znB-VC-fkK" secondAttribute="centerY" id="lZU-iO-Db0"/>
+                    <constraint firstItem="qLI-3V-tnp" firstAttribute="leading" secondItem="TWa-rv-bjt" secondAttribute="leading" id="mXg-50-Fk9"/>
+                    <constraint firstItem="znB-VC-fkK" firstAttribute="leading" secondItem="qLI-3V-tnp" secondAttribute="trailing" constant="71" id="pm6-UK-gJI"/>
+                    <constraint firstItem="UtA-Mo-bet" firstAttribute="leading" secondItem="nTV-ud-yZK" secondAttribute="leading" id="qkR-mY-z9o"/>
+                    <constraint firstAttribute="trailing" secondItem="Z0U-gB-UYk" secondAttribute="trailing" id="s0b-Rf-Czz"/>
+                    <constraint firstItem="UtA-Mo-bet" firstAttribute="trailing" secondItem="nTV-ud-yZK" secondAttribute="trailing" id="zVw-3P-Agu"/>
+                    <constraint firstItem="z8P-l3-sge" firstAttribute="leading" secondItem="TWa-rv-bjt" secondAttribute="trailing" constant="55" id="zpP-Yz-0Kq"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="garageDoorStatus" destination="STy-kZ-Cey" id="4HF-lT-M1K"/>
                 <outlet property="garageDoorStatus2" destination="nTV-ud-yZK" id="Ssu-a5-qML"/>
@@ -84,4 +123,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="garagebkg" width="950" height="538"/>
+    </resources>
 </document>

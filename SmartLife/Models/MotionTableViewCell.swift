@@ -1,18 +1,17 @@
 //
-//  TempHumidityTableViewCell.swift
+//  MotionTableViewCell.swift
 //  SmartLife
 //
-//  Created by Conner Simmons on 4/19/16.
+//  Created by Conner Simmons on 4/21/16.
 //  Copyright © 2016 Conner Simmons. All rights reserved.
 //
 
 import UIKit
 
-class TempHumidityTableViewCell: UITableViewCell {
+class MotionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var currentTemp: UILabel!
-    @IBOutlet weak var currentHumidity: UILabel!
-    @IBOutlet weak var unitSwitch: UISwitch!
+    @IBOutlet weak var bedroomStatus: UILabel!
+    @IBOutlet weak var bedroomLastSeen: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +23,5 @@ class TempHumidityTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 }

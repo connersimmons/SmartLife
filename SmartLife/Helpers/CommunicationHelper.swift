@@ -23,24 +23,11 @@ class CommunicationHelper {
     }
     
     func performRestCall(urlString : String) -> NSDictionary {
-        /*
-        var jsonResults = NSDictionary()
-        Alamofire.request(.GET, urlString)
-            .responseJSON { response in
-                //print(response)
-                
-                jsonResults = try! NSJSONSerialization.JSONObjectWithData(response.data!, options: []) as! NSDictionary
-                print(jsonResults)
-        }
-        */
         var jsonResults = NSDictionary()
         let response = Alamofire.request(.GET, urlString, parameters: nil).responseJSON()
         if let json = response.result.value {
-            print(json)
             jsonResults = json as! NSDictionary
-            print(jsonResults)
         }
-        
         
         return jsonResults
     }

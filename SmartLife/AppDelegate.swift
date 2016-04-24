@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        MAThemeKit.customizeNavigationBarColor(GMColor.blueGrey300Color(), textColor: UIColor.whiteColor(), buttonColor: UIColor.whiteColor())
+        MAThemeKit.customizeNavigationBarColor(GMColor.blackColor(), textColor: UIColor.whiteColor(), buttonColor: UIColor.whiteColor())
         
         return true
     }

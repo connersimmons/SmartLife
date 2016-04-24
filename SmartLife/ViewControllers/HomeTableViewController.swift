@@ -17,6 +17,7 @@ class HomeTableViewController: UITableViewController {
     let lightsCellNibName = "LightsTableViewCell"
     let garageCellNibName = "GarageTableViewCell"
     let tempHumCellNibName = "TempHumidityTableViewCell"
+    let motionCellNibName = "MotionTableViewCell"
     
     let arduinoURL = "http://192.168.1.101/"
     
@@ -25,21 +26,26 @@ class HomeTableViewController: UITableViewController {
     var fahrenheit = "?"
     var celsius = "?"
     var humidity = "?"
-    var garageStatus = "?"
+    var garageStatus1 = "?"
     var garageStatus2 = "?"
+    var bedroomMotionStatus = "?"
+    var bedroomLastSeen : NSDate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.separatorStyle = .None
+        
         commHelper = CommunicationHelper.sharedInstance
         
         let jsonResults = commHelper.performRestCall("\(arduinoURL)$0")
-        print(jsonResults)
         handleResultsOfWebCall(jsonResults)
         
         self.timer = NSTimer(timeInterval: 2.0, target: self, selector: #selector(HomeTableViewController.refresh(_:)), userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(self.timer, forMode: NSDefaultRunLoopMode)
         
+        self.refreshControl?.backgroundColor = UIColor.blackColor()
+        self.refreshControl?.tintColor = UIColor.whiteColor()
         self.refreshControl?.addTarget(self, action: #selector(HomeTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
     
@@ -52,6 +58,7 @@ class HomeTableViewController: UITableViewController {
     
     func refresh(sender:AnyObject) {
         let jsonResults = commHelper.performRestCall("\(arduinoURL)$0")
+        print(jsonResults)
         handleResultsOfWebCall(jsonResults)
         
         self.tableView.reloadData()
@@ -61,7 +68,7 @@ class HomeTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,11 +99,18 @@ class HomeTableViewController: UITableViewController {
             tableView.registerNib(UINib(nibName: garageCellNibName, bundle: nil), forCellReuseIdentifier: cellReuseID)
             let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as! GarageTableViewCell
             
-            cell.garageDoorStatus.text = garageStatus
-            if garageStatus == "Open" {
+            cell.garageDoorStatus.text = garageStatus1
+            if garageStatus1 == "Open" {
                 cell.garageDoorSwitch.setOn(true, animated: true)
-            } else if garageStatus == "Closed" {
+            } else if garageStatus1 == "Closed" {
                 cell.garageDoorSwitch.setOn(false, animated: true)
+            }
+            
+            cell.garageDoorStatus2.text = garageStatus2
+            if garageStatus2 == "Open" {
+                cell.garageDoorSwitch2.setOn(true, animated: true)
+            } else if garageStatus2 == "Closed" {
+                cell.garageDoorSwitch2.setOn(false, animated: true)
             }
             
             return cell
@@ -115,6 +129,18 @@ class HomeTableViewController: UITableViewController {
             
             cell.currentHumidity.text = "\(humidity) %"
             
+            return cell
+        case 3:
+            tableView.registerNib(UINib(nibName: motionCellNibName, bundle: nil), forCellReuseIdentifier: cellReuseID)
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as! MotionTableViewCell
+            
+            cell.bedroomStatus.text = bedroomMotionStatus
+            if bedroomLastSeen != nil {
+                cell.bedroomLastSeen.text = bedroomLastSeen.shortDateTimeStyle()
+            } else {
+                cell.bedroomLastSeen.text = "N/A"
+            }
+
             return cell
         default:
             break
@@ -137,7 +163,7 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.blackColor()
         return view
     }
     
@@ -172,11 +198,11 @@ class HomeTableViewController: UITableViewController {
                 celsius = valueRound(value)
             } else if key == "humidity" {
                 humidity = valueRound(value)
-            } else if key == "garage" {
+            } else if key == "garage1" {
                 if value == "Open" {
-                    garageStatus = "Open"
+                    garageStatus1 = "Open"
                 } else if value == "Closed" {
-                    garageStatus = "Closed"
+                    garageStatus1 = "Closed"
                 }
             } else if key == "garage2" {
                 if value == "Open" {
@@ -184,7 +210,15 @@ class HomeTableViewController: UITableViewController {
                 } else if value == "Closed" {
                     garageStatus2 = "Closed"
                 }
+            } else if key == "motion" {
+                if value == "1" {
+                    bedroomMotionStatus = "Detected"
+                    bedroomLastSeen = NSDate()
+                } else {
+                    bedroomMotionStatus = "None"
+                }
             }
+            
             
         }
         
