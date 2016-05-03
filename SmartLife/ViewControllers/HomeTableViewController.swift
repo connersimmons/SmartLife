@@ -183,13 +183,16 @@ class HomeTableViewController: UITableViewController {
             if key == "kitchenLED" {
                 if value == "1" {
                     kitchenStatus = "On"
-                } else {
+                } else if value == "0" {
                     kitchenStatus = "Off"
+                }
+                else {
+                    kitchenStatus = "ERROR"
                 }
             } else if key == "bathroomLED" {
                 if value == "1" {
                     bathroomStatus = "On"
-                } else {
+                } else if value == "0" {
                     bathroomStatus = "Off"
                 }
             } else if key == "temperatureF" {
