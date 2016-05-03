@@ -119,15 +119,30 @@ class HomeTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as! TempHumidityTableViewCell
             
             if cell.unitSwitch.on {
-                cell.currentTemp.text = "\(celsius) °C"
+                if celsius == "ERROR" {
+                    cell.currentTemp.text = "\(celsius)"
+                }
+                else {
+                    cell.currentTemp.text = "\(celsius) °C"
+                }
             } else {
-                cell.currentTemp.text = "\(fahrenheit) °F"
+                if fahrenheit == "ERROR" {
+                    cell.currentTemp.text = "\(fahrenheit)"
+                }
+                else {
+                    cell.currentTemp.text = "\(fahrenheit) °F"
+                }
             }
             //cell.tempStr = fahrenheit
             //print(temperature)
             //cell.currentTemp.text = "\(temperatureRound(temperature)) °F"
             
-            cell.currentHumidity.text = "\(humidity) %"
+            if humidity == "ERROR" {
+                cell.currentHumidity.text = "\(humidity)"
+            }
+            else {
+                cell.currentHumidity.text = "\(humidity) %"
+            }
             
             return cell
         case 3:
@@ -196,16 +211,33 @@ class HomeTableViewController: UITableViewController {
                     bathroomStatus = "Off"
                 }
             } else if key == "temperatureF" {
-                fahrenheit = valueRound(value)
+                if value == " NAN" {
+                    fahrenheit = "ERROR"
+                }
+                else {
+                   fahrenheit = valueRound(value)
+                }
             } else if key == "temperatureC" {
-                celsius = valueRound(value)
+                if value == " NAN" {
+                    celsius = "ERROR"
+                }
+                else {
+                    celsius = valueRound(value)
+                }
             } else if key == "humidity" {
-                humidity = valueRound(value)
+                if value == " NAN" {
+                    humidity = "ERROR"
+                }
+                else {
+                    humidity = valueRound(value)
+                }
             } else if key == "garage1" {
                 if value == "Open" {
                     garageStatus1 = "Open"
                 } else if value == "Closed" {
                     garageStatus1 = "Closed"
+                } else {
+                    garageStatus1 = "ERROR"
                 }
             } else if key == "garage2" {
                 if value == "Open" {
